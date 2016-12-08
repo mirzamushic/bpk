@@ -2,6 +2,7 @@ package com.javatechig.gridviewexample;
 
 import java.util.ArrayList;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -38,6 +39,17 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(intent);
             }
         });
+    }
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        // Checks the orientation of the screen
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            setContentView(R.layout.grid_item_layout);
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            setContentView(R.layout.grid_item_layout);
+        }
     }
 
     /**
